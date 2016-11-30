@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+   -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+img {
+  border: none;
+  vertical-align: top;
+  &.error, &.empty {
+    display: none;
+  }
+}
+
+a {
+  text-decoration: none
+}
+
+html {
+  @each $width in 213px, 320px, 360px, 375px, 384px, 400px, 414px, 424px, 480px, 540px, 600px, 640px, 720px, 768px, 800px, 854px, 960px, 966px, 1024px, 1080px, 1280px, 1440px, 1536px, 1920px, 2560px {
+    @media screen and (min-width: $width) {
+      font-size: 100px * ($width / 720px) + !important;
+    }
+  }
+
+  height: 100%;
+}
+
+
+body {
+  font-weight: 300;
+  font-size: 12px;
+  font-size: 0.12rem;
+  line-height: 1.4;
+
+  overflow: auto;
+
+  background-color: $background-color;
+}
