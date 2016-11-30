@@ -1,7 +1,7 @@
 {
-  "name": "m",
-  "version": "0.4.15",
-  "description": "m.qiaobutang.com aka mobile qiaobutang",
+  "name": "isomorphic-react-with-mobx",
+  "version": "0.0.1",
+  "description": "React + MobX + React-Router",
   "scripts": {
     "prestart": "npm run remove-dist",
     "start": "npm-run-all --parallel lint:tools open:src",
@@ -88,6 +88,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:QiaoBuTang/m.git"
+    "url": "git@github.com:L-x-C/isomorphic-react-with-mobx.git"
   }
 }
