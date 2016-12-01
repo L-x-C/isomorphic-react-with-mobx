@@ -23,6 +23,5 @@ function onRouterUpdate() {
   });
 }
 
-
 render(<Root states={states} onUpdate={onRouterUpdate} history={browserHistory}
              routes={getRoutes()}/>, document.getElementById('app'));

@@ -2,14 +2,17 @@ import React, {Component, PropTypes} from 'react';
 import {action} from 'mobx';
 import StudentActions from '../../actions/student';
 import {observer, inject} from 'mobx-react';
-import { Link } from 'react-router';
+import {Link} from 'react-router';
 
 @inject("student")
 @observer
 export default class TestPage extends Component {
   @action
   static fetchData({states, query, params}) {
-    return StudentActions.fetchName(states);
+    Promise.all([StudentActions.fetchName(states)
+      , StudentActions.fetchName2(states)]).then(values => {
+      console.log(values); // [3, 1337, "foo"]
+    });
   }
 
   changeName = () => {

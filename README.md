@@ -1,8 +1,6 @@
 # isomorphic-react-with-mobx
 React + MobX + React-Router (CSR & SSR)
 
-**Unfinished**
-
 ## How to use
 
 ```
