@@ -6,14 +6,16 @@ import nodeExternals from 'webpack-node-externals';
 const config = require('../config.json');
 
 const getEntry = function (env, isServer) {
-  const entry = ['babel-polyfill'];
+  let entry = {};
   if (isServer) {
-    entry.push('./src/serverRender.js');
+    entry['serverRender'] = ['babel-polyfill', './src/serverRender.js'];
   } else {
-    if (env === 'development') { // only want hot reloading when in dev.
-      entry.push('webpack-hot-middleware/client?reload=true');
+    if (env === 'development') {
+      entry['index'] = ['babel-polyfill', 'webpack-hot-middleware/client?reload=true', './src/index.js'];
+    } else {
+      entry['vendor'] = ['react', 'react-router', 'mobx', 'mobx-react'];
+      entry['index'] = ['babel-polyfill', './src/index.js'];
     }
-    entry.push('./src/index.js');
   }
   return entry;
 };
@@ -27,7 +29,7 @@ function getOutput(env, isServer) {
     output.filename = 'serverRender.js';
     output.libraryTarget = 'commonjs2';
   } else {
-    output.filename = env === 'production' ? '/bundle.[hash].js' : 'bundle.js';
+    output.filename = env === 'production' ? '/[name].[hash].js' : '[name].js';
   }
   return output;
 }

@@ -32,6 +32,10 @@ export default function getPlugins(env, isServer) {
       filename: 'assets.json',
       fullPath: false
     }));
+    plugins.push(new webpack.optimize.CommonsChunkPlugin({
+        name: 'vendor',      // 需要注意的是，chunk的name不能相同！！！
+        minChunks: 2
+    }));
     break;
 
   case 'development':

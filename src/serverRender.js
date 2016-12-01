@@ -23,7 +23,7 @@ function renderFullPage(renderedContent, initialState, inWechat) {
       <meta name="apple-mobile-web-app-status-bar-style" content="yes">
       <meta name="x5-orientation" content="portrait">
       <title>乔布简历</title>
-      <link rel="stylesheet" href="${STATIC_PREFIX}${ASSETS.main.css}"/>
+      <link rel="stylesheet" href="${STATIC_PREFIX}${ASSETS.index.css}"/>
     </head>
     <body>
       <div id="app">${renderedContent}</div>
@@ -31,7 +31,8 @@ function renderFullPage(renderedContent, initialState, inWechat) {
         window.__INITIAL_STATE__ = ${serialize(initialState)};
       </script>
       ${inWechat ? '<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>' : ''}
-      <script type="text/javascript" charset="utf-8" src="${STATIC_PREFIX}${ASSETS.main.js}"></script>
+      <script type="text/javascript" charset="utf-8" src="${STATIC_PREFIX}${ASSETS.vendor.js}"></script>
+      <script type="text/javascript" charset="utf-8" src="${STATIC_PREFIX}${ASSETS.index.js}"></script>
     </body>
   </html>`;
 }
