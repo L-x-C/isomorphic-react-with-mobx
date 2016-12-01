@@ -8,10 +8,12 @@ import {Link} from 'react-router';
 @observer
 export default class TestPage extends Component {
   @action
-  static fetchData({states, query, params}) {
-    Promise.all([StudentActions.fetchName(states)
-      , StudentActions.fetchName2(states)]).then(values => {
-      console.log(values); // [3, 1337, "foo"]
+  static onEnter({states, query, params}) {
+    Promise.all([
+      StudentActions.fetchName(states),
+      StudentActions.fetchName2(states)
+    ]).then(values => {
+      //do something
     });
   }
 

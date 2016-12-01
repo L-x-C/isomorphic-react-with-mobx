@@ -15,11 +15,11 @@ function onRouterUpdate() {
     return;
   }
 
-  // Page changed, executing fetchData
+  // Page changed, executing onEnter
   let params = this.state.params;
   let query = this.state.location.query;
-  this.state.components.filter(c => c.fetchData).forEach(c => {
-    c.fetchData({states, params, query});
+  this.state.components.filter(c => c.onEnter).forEach(c => {
+    c.onEnter({states, query, params});
   });
 }
 

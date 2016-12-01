@@ -8,7 +8,7 @@ export default (renderProps, states) => {
     const params = renderProps.params;
     const query = renderProps.location.query;
 
-    const fetchDataMethods = renderProps.components.filter(c => c.fetchData).map(c => c.fetchData);
+    const onEnterMethods = renderProps.components.filter(c => c.onEnter).map(c => c.onEnter);
 
-    return Promise.all(fetchDataMethods.map(method => method({states, query, params})));
+    return Promise.all(onEnterMethods.map(method => method({states, query, params})));
 };

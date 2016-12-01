@@ -7,7 +7,7 @@ import getRoutes from './routes';
 import ASSETS from '../dist/assets.json';
 import {STATIC_PREFIX} from '../config.json';
 import {createServerState} from './states';
-import fetchData from './helpers/fetchData';
+import onEnter from './helpers/onEnter';
 
 function renderFullPage(renderedContent, initialState, inWechat) {
   return `<!doctype html>
@@ -49,7 +49,7 @@ module.exports = (req, res) => {
     } else if (redirectLocation) {
       return res.redirect(302, encodeURI(redirectLocation.pathname + redirectLocation.search));
     } else if (renderProps && renderProps.components) {
-      return fetchData(renderProps, state).then(() => {
+      return onEnter(renderProps, state).then(() => {
         const rootComp = <Root states={state} renderProps={renderProps} type="server"/>;
         res.status(200).send(renderFullPage(renderToString(rootComp), state, inWechat));
       }).catch((err) => {
