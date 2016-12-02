@@ -9,7 +9,7 @@ import {Link} from 'react-router';
 export default class TestPage extends Component {
   @action
   static onEnter({states, query, params}) {
-    Promise.all([
+    return Promise.all([
       StudentActions.fetchName(states),
       StudentActions.fetchName2(states)
     ]).then(values => {
