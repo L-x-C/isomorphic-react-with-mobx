@@ -12,7 +12,7 @@ npm install
 ## Dev (client-side rendering)
 
 ```
-npm start -s
+npm start -s (-s is optional，will neglect unimportant message)
 open http://localhost:3001/test
 ```
 
