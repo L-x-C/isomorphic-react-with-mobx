@@ -1,4 +1,5 @@
 import React, {PropTypes, Component} from 'react';
+import Menu from '../components/menu/Menu';
 
 export default class App extends Component {
   static propTypes = {
@@ -8,6 +9,7 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        <Menu />
         {this.props.children}
       </div>
     );
