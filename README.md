@@ -13,7 +13,7 @@ npm install
 
 ```
 npm start -s
-open http://localhost:3000/test
+open http://localhost:3001/test
 ```
 
 ## Production (server-side rendering)
@@ -21,5 +21,5 @@ open http://localhost:3000/test
 ```
 npm run build
 node server.js
-open http://localhost:20000/test
+open http://localhost:20001/test
 ```

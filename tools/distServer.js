@@ -6,9 +6,9 @@ import historyApiFallback from 'connect-history-api-fallback';
 
 // Run Browsersync
 browserSync({
-  port: 3000,
+  port: 3001,
   ui: {
-    port: 3001
+    port: 3002
   },
   server: {
     baseDir: 'dist'
