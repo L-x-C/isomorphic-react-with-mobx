@@ -1,5 +1,6 @@
 import {action} from 'mobx';
 import fetch from 'isomorphic-fetch';
+import {login} from '../helpers/location';
 
 export default {
   @action fetchName: function(states) {

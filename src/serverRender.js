@@ -8,6 +8,9 @@ import ASSETS from '../dist/assets.json';
 import {STATIC_PREFIX} from '../config.json';
 import {createServerState} from './states';
 import onEnter from './helpers/onEnter';
+import {RedirectException, appendParam} from './helpers/location';
+
+
 
 function renderFullPage(renderedContent, initialState, inWechat) {
   return `<!doctype html>
@@ -37,7 +40,30 @@ function renderFullPage(renderedContent, initialState, inWechat) {
   </html>`;
 }
 
+
+
 module.exports = (req, res) => {
+  const interceptRedirectException = (e) => {
+    if (e instanceof RedirectException) {
+      const {location, options} = e;
+      const {status, back} = options || {};
+      const url = back ? appendParam(location, {return: (typeof back === 'string') ? back : (req.protocol + '://' + req.get('host') + req.originalUrl)}) : location
+      if (status) {
+        res.redirect(status, url);
+      }
+      else {
+        res.redirect(url);
+      }
+      return true;
+    }
+    return false;
+  };
+  const catchErr = (e) => {
+    if (!interceptRedirectException(e)) {
+      res.status(500).send(e.message);
+    }
+  };
+
   const inWechat = new RegExp('MicroMessenger', 'i').test(req.headers['user-agent']);
   let state = createServerState();
   match({
@@ -52,9 +78,7 @@ module.exports = (req, res) => {
       return onEnter(renderProps, state).then(() => {
         const rootComp = <Root states={state} renderProps={renderProps} type="server"/>;
         res.status(200).send(renderFullPage(renderToString(rootComp), state, inWechat));
-      }).catch((err) => {
-        res.status(400).send('Not found' + err);
-      });
+      }).catch(catchErr);
     } else {
       res.status(404).send('Not found');
     }

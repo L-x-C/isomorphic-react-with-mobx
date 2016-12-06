@@ -21,7 +21,7 @@ export function redirect(url, options) {
 
 export function appendParam(url, params) {
   const pairs = [];
-  for (name in params) {
+  for (let name in params) {
     pairs.push(`${name}=${encodeURIComponent(params[name])}`);
   }
 

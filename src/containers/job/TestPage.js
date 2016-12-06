@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {action} from 'mobx';
-import StudentActions from '../../actions/student';
+import studentActions from '../../actions/student';
+import menuActions from '../../actions/menu';
 import {observer, inject} from 'mobx-react';
 
 @inject("student")
@@ -9,8 +10,9 @@ export default class TestPage extends Component {
   @action
   static onEnter({states, query, params}) {
     return Promise.all([
-      StudentActions.fetchName(states),
-      StudentActions.fetchName2(states)
+      menuActions.changeMenuTitle(states, 'serverTitle'),
+      studentActions.fetchName(states),
+      studentActions.fetchName2(states)
     ]).then(values => {
       //do something
     });
