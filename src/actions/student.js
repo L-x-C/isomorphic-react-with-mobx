@@ -7,7 +7,7 @@ export default {
     return new Promise((resolve)=> {
       setTimeout(function() {
         states.student.store_name = 'SeverName after 1s';
-        resolve(1);
+        resolve();
       }, 1000);
     });
   },
@@ -16,7 +16,7 @@ export default {
     return new Promise((resolve)=> {
       setTimeout(function() {
         states.student.store_name = 'SeverName2 after 1.5s';
-        resolve(2);
+        resolve();
       }, 1500);
     });
   }

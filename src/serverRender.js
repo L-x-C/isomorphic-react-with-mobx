@@ -10,8 +10,6 @@ import {createServerState} from './states';
 import onEnter from './helpers/onEnter';
 import {RedirectException, appendParam} from './helpers/location';
 
-
-
 function renderFullPage(renderedContent, initialState, inWechat) {
   return `<!doctype html>
   <html lang="">
@@ -39,8 +37,6 @@ function renderFullPage(renderedContent, initialState, inWechat) {
     </body>
   </html>`;
 }
-
-
 
 module.exports = (req, res) => {
   const interceptRedirectException = (e) => {
