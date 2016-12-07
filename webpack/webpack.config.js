@@ -4,6 +4,7 @@ import getLoaders from './loaders';
 import getPlugins from './plugins';
 import nodeExternals from 'webpack-node-externals';
 const config = require('../config.json');
+const dependencies = require('../package.json').dependencies;
 
 const getEntry = function (env, isServer) {
   let entry = {};
@@ -13,7 +14,7 @@ const getEntry = function (env, isServer) {
     if (env === 'development') {
       entry['index'] = ['babel-polyfill', 'webpack-hot-middleware/client?reload=true', './src/index.js'];
     } else {
-      entry['vendor'] = ['react', 'react-router', 'mobx', 'mobx-react'];
+      entry['vendor'] = Object.keys(dependencies);
       entry['index'] = ['babel-polyfill', './src/index.js'];
     }
   }
