@@ -43,7 +43,7 @@ module.exports = (req, res) => {
     if (e instanceof RedirectException) {
       const {location, options} = e;
       const {status, back} = options || {};
-      const url = back ? appendParam(location, {return: (typeof back === 'string') ? back : (req.protocol + '://' + req.get('host') + req.originalUrl)}) : location
+      const url = back ? appendParam(location, {return: (typeof back === 'string') ? back : (req.protocol + '://' + req.get('host') + req.originalUrl)}) : location;
       if (status) {
         res.redirect(status, url);
       }
