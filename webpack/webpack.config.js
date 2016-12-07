@@ -5,6 +5,7 @@ import getPlugins from './plugins';
 import nodeExternals from 'webpack-node-externals';
 const config = require('../config.json');
 const dependencies = require('../package.json').dependencies;
+delete dependencies['antd'];
 
 const getEntry = function (env, isServer) {
   let entry = {};
