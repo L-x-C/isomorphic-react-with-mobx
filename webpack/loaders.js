@@ -16,7 +16,7 @@ export default function getLoaders(env) {
   }, {
     test: /(\.css|\.scss)$/,
     loader: env === 'production' ?
-      ExtractTextPlugin.extract('style', 'css?-autoprefixer!postcss!sass') : 'style!css!postcss!sass?sourceMap',
+      ExtractTextPlugin.extract("css?sourceMap!postcss!sass?sourceMap") : 'style!css!postcss!sass?sourceMap',
     exclude: path.join('node_modules')
   }];
 }
