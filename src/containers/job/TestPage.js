@@ -4,6 +4,7 @@ import studentActions from '../../actions/student';
 import menuActions from '../../actions/menu';
 import {observer, inject} from 'mobx-react';
 import {progressStart, progressDone} from '../../helpers/progress';
+import { DatePicker } from 'antd';
 
 @inject("student")
 @observer
@@ -29,6 +30,7 @@ export default class TestPage extends Component {
   render() {
     return (
       <div>
+        <DatePicker />
         <h1>{this.props.student.store_name}</h1>
         <button onClick={this.changeName}>click to change name</button>
       </div>
