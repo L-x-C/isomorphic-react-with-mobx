@@ -53,5 +53,8 @@ It works on both server and client side.
 ```
 import {redirect} from './helpers/location';
 
-redirect('http://www.xxx.com');
+@action
+static onEnter({states, query, params}) {
+    redirect('http://www.xxx.com');
+}
 ```
