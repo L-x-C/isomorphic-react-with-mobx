@@ -35,5 +35,4 @@ dist
 # Mac files
 .DS_Store
 
-config.json
-process.json
+
