@@ -1,4 +1,5 @@
 import Nprogress from 'nprogress';
+import {isClient} from './utils';
 
 export function progressStart() {
   if (isClient()) {
@@ -17,8 +18,4 @@ export function progressDone() {
 export function progress() {
   progressStart();
   progressDone();
-}
-
-function isClient() {
-  return !!((typeof window !== 'undefined') && window.document);
 }

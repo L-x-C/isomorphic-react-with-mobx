@@ -23,3 +23,33 @@ npm run build
 node server.js
 open http://localhost:20001/test
 ```
+
+## How to fetch data on the server side?
+
+Adding a `onEnter` function to a component, if you want to fetch another data after fetch the first, you should use `Promise`
+See the example in `TestPage.js`
+
+```sh
+@action
+static onEnter({states, query, params}) {
+return Promise.all([
+  menuActions.changeMenuTitle(states, 'serverTitle'),
+  studentActions.fetchName(states),
+  studentActions.fetchName2(states)
+]).then(values => {
+  //do something
+});
+}
+```
+
+## How to redirect on the server side?
+
+In `src/helpers/location.js`, there is a `redirect` function, you can just import it and use.
+The `catchErr` in `src/serverRender.js` will catch the redirect command and redirect as you wish.
+It works on both server and client side.
+
+```sh
+import {redirect} from './helpers/location';
+
+redirect('http://www.xxx.com');
+```

@@ -1,5 +1,6 @@
 import { CV_SERVER } from '../../config.json';
 import isEmpty from 'lodash/isEmpty';
+import {isClient} from './utils';
 
 export class RedirectException {
   constructor(location, options) {
@@ -35,10 +36,6 @@ export function appendParam(url, params) {
   }
   result += pairs.join('&');
   return result;
-}
-
-export function isClient() {
-  return !!((typeof window !== 'undefined') && window.document);
 }
 
 export function login() {
