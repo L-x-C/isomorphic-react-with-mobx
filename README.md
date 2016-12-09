@@ -24,6 +24,8 @@ node server.js
 open http://localhost:20001/test
 ```
 
+
+## F.A.Q
 ## How to fetch data on the server side?
 
 Adding a `onEnter` function to a component, if you want to fetch another data after fetch the first, you should use `Promise`
@@ -32,13 +34,13 @@ See the example in `TestPage.js`
 ```sh
 @action
 static onEnter({states, query, params}) {
-return Promise.all([
-  menuActions.changeMenuTitle(states, 'serverTitle'),
-  studentActions.fetchName(states),
-  studentActions.fetchName2(states)
-]).then(values => {
-  //do something
-});
+    return Promise.all([
+      menuActions.changeMenuTitle(states, 'serverTitle'),
+      studentActions.fetchName(states),
+      studentActions.fetchName2(states)
+    ]).then(values => {
+      //do something
+    });
 }
 ```
 
