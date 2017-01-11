@@ -2,17 +2,14 @@
 // Allowing console calls below since this is a build file.
 /*eslint-disable no-console */
 import webpack from 'webpack';
-import webpackConfigBuilder from '../webpack/webpack.config';
+import {getProdConfigs} from '../webpack/webpack.config';
 import 'colors';
 import { argv as args } from 'yargs';
+import async from 'async';
 
-process.env.NODE_ENV = 'production'; // this assures React is built in prod mode and that the Babel dev config doesn't apply.
+const webpackConfigs = getProdConfigs();
 
-const isServer = args.server;
-
-const webpackConfig = webpackConfigBuilder(process.env.NODE_ENV, isServer);
-
-webpack(webpackConfig).run((err, stats) => {
+const callback = (err, stats, config) => {
   const inSilentMode = args.s; // set to true when -s is passed on the command
 
   if (!inSilentMode) {
@@ -41,7 +38,13 @@ webpack(webpackConfig).run((err, stats) => {
   }
 
   // if we got this far, the build succeeded.
-  console.log(`Your app has been compiled in production mode for ${isServer ? 'server' : 'client'} and written to /dist. It\'s ready to roll!`.green.bold);
+  console.log(`Your app has been compiled in production mode for entry ${Object.keys(config.entry)} and written to ${config.output.path}. It\'s ready to roll!`.green.bold);
 
   return 0;
+};
+
+async.eachSeries(webpackConfigs, function(config, callback) {
+  webpack(config).run((err, stats) => {
+    callback(err, stats, config);
+  });
 });

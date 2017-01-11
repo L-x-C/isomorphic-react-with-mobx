@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import './notFountPage.scss';
-import image500 from '../../images/500.png';
-import image400 from '../../images/404.png';
+import image500 from '../../images/500.jpg';
+import image400 from '../../images/404.gif';
 
 export default class NotFoundPage extends Component {
   getImg() {

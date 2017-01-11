@@ -37,7 +37,7 @@ fs.readFile('src/index.html', 'utf8', (err, markup) => {
   //   }
   // }
 
-  $('body > script#vendor').attr({ src: `${STATIC_PREFIX}${ASSETS.vendor.js}` });
+  $('body > script#vendor').attr({ src: `${STATIC_PREFIX}${ASSETS.manifest.js}` });
   $('body > script#bundle').attr({ src: `${STATIC_PREFIX}${ASSETS.index.js}` });
 
   fs.writeFile('dist/index.html', $.html(), 'utf8', function (err) {

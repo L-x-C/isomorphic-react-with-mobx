@@ -16,7 +16,7 @@ export default class Menu extends Component {
             <i className="iconfont icon-locationfill"></i>
             page2
           </Link>
-          <Link to="/test" className="menu-link" activeClassName="active">
+          <Link to="/" className="menu-link" activeClassName="active">
             <i className="iconfont icon-locationfill"></i>
             page1
           </Link>

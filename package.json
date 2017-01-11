@@ -1,37 +1,37 @@
 {
-  "name": "isomorphic-react-with-mobx",
+  "name": "admin",
   "version": "0.0.1",
   "description": "React + MobX + React-Router",
   "scripts": {
-    "prestart": "npm run remove-dist",
-    "start": "npm-run-all --parallel lint:tools open:src",
-    "open:src": "babel-node tools/srcServer.js",
-    "open:dist": "babel-node tools/distServer.js",
     "lint:tools": "eslint webpack.config.js tools",
-    "clean-dist": "npm run remove-dist && mkdir dist",
     "remove-dist": "node_modules/.bin/rimraf ./dist",
-    "build:html": "babel-node tools/buildHtml.js",
-    "build:server": "babel-node tools/build.js --server",
-    "prebuild": "npm run clean-dist",
-    "build": "babel-node tools/build.js && babel-node tools/build.js --server",
-    "postbuild": "npm run build:html"
+    "prestart": "npm run remove-dist",
+    "start": "npm-run-all --parallel lint:tools development",
+    "development": "babel-node tools/devServer.js",
+    "server": "npm-run-all build production",
+    "production": "node tools/prodServer.js",
+    "prebuild": "npm run remove-dist && mkdir dist",
+    "build": "babel-node tools/build.js",
+    "postbuild": "babel-node tools/buildHtml.js"
   },
   "author": "QBT-fe",
   "dependencies": {
+    "antd": "2.5.1",
     "isomorphic-fetch": "2.2.1",
     "lodash": "4.17.2",
     "mobx": "2.6.3",
     "mobx-react": "4.0.3",
     "nprogress": "0.2.0",
-    "querystring": "0.2.0",
-    "react": "15.0.2",
-    "react-dom": "15.0.2",
+    "qs": "6.3.0",
+    "react": "15.4.1",
+    "react-dom": "15.4.1",
     "react-helmet": "3.1.0",
     "react-router": "3.0.0"
   },
   "devDependencies": {
-    "helmet": "2.0.0",
+    "helmet": "3.1.0",
     "assets-webpack-plugin": "3.4.0",
+    "async": "2.1.4",
     "autoprefixer": "6.3.6",
     "axios": "0.11.1",
     "babel-cli": "6.8.0",
@@ -77,7 +77,7 @@
     "style-loader": "0.13.1",
     "urijs": "1.18.0",
     "url-loader": "0.5.7",
-    "webpack": "1.13.0",
+    "webpack": "1.13.2",
     "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.10.0",
     "webpack-node-externals": "1.2.0",
@@ -85,6 +85,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:L-x-C/isomorphic-react-with-mobx.git"
+    "url": "git@github.com:QiaoBuTang/admin.git"
   }
 }

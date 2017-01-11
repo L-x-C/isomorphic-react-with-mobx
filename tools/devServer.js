@@ -9,16 +9,16 @@ import historyApiFallback from 'connect-history-api-fallback';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import webpackConfigBuilder from '../webpack/webpack.config';
+import {getDevConfig} from '../webpack/webpack.config';
 
-const webpackConfig = webpackConfigBuilder('development');
+const webpackConfig = getDevConfig();
 const bundler = webpack(webpackConfig);
 
 const bs = browserSync.create();
 
 // Run Browsersync and use middleware for Hot Module Replacement
 bs.init({
-  port: 3001,
+  port: 3002,
   server: {
     baseDir: 'src'
   },

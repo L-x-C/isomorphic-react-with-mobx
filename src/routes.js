@@ -9,7 +9,7 @@ import NotFoundPage from './components/notFountPage/NotFoundPage';
 export default function getRoutes() {
   return (
     <Route component={App}>
-      <Route path="test" component={TestPage}/>
+      <Route path="/" component={TestPage}/>
       <Route path="test2" component={TestPage2}/>
       <Route path="404" component={NotFoundPage}/>
       <Route path="*" component={NotFoundPage}/>
