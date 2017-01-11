@@ -13,17 +13,22 @@ npm install
 
 ```
 npm start -s (-s is optional，will neglect unimportant message)
-open http://localhost:3001/test
+open http://localhost:3001
 ```
 
 ## Production (server-side rendering)
+```
+npm run server
 
+open http://localhost:20001
+```
+it equals to
 ```
 npm run build
-node server.js
-open http://localhost:20001/test
-```
+npm run production
 
+open http://localhost:20001
+```
 
 ## F.A.Q
 ## How to fetch data on the server side?
