@@ -2,6 +2,7 @@ import webpack from 'webpack';
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import AssetsPlugin from 'assets-webpack-plugin';
+import WebpackMd5Hash from 'webpack-md5-hash';
 
 export default function getPlugins(env, isServerRender) {
   const GLOBALS = {
@@ -32,7 +33,7 @@ export default function getPlugins(env, isServerRender) {
         fullPath: false
       }));
       plugins.push(new webpack.optimize.CommonsChunkPlugin({
-        names: ["vendor", "manifest"],
+        names: [ "manifest", "vendor"],
         minChunks: function(module, count) {
           // any required modules inside node_modules are extracted to vendor
           return (
@@ -44,6 +45,7 @@ export default function getPlugins(env, isServerRender) {
           )
         }
       }));
+      plugins.push(new WebpackMd5Hash());
 
       break;
 

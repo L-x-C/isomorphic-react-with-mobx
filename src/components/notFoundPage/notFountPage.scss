@@ -1,0 +1,15 @@
+.qbt-notFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  height: 85vh;
+  background: #00ac83;
+  &.qbt-notFound_500 {
+    background: #fefefe;
+  }
+  &.qbt-notFount_hello {
+    background: #fff;
+  }
+}

@@ -46,11 +46,7 @@ const mobileUaArry = [
   "WAP2.0" //支持wap 2.0的
 ];
 
-const redirectMapping = {
-  '/job/list/c/': 'http://job.qiaobutang.com/c/',
-  '/job/list/': 'http://job.qiaobutang.com/',
-  '/job/list': 'http://job.qiaobutang.com/list'
-};
+const redirectMapping = {};
 
 module.exports = (req, res, next) => {
   //这是为了PC端有一个切换PC版M版的强制跳转,不根据ua

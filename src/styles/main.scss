@@ -1,7 +1,37 @@
+@import './vender/antd.css';
+@import "./vender/nprogress.css";
 @import './variables.scss';
 @import './font/iconfont.css';
 @import './reset.scss';
+@import './antd_qbt.scss';
+
+$nprogressColor: #1da0f8;
 
 #app {
-  text-align: center;
+  min-height: 100%;
+  position: relative;
+}
+
+#nprogress {
+  .bar {
+    background: $nprogressColor;
+  }
+  .spinner-icon {
+    border-top-color: $nprogressColor;
+    border-left-color: $nprogressColor;
+  }
+  .peg {
+    box-shadow: 0 0 10px $nprogressColor, 0 0 5px $nprogressColor;
+  }
+}
+
+.clear {
+  &:after {
+    clear: both;
+    content: '.';
+    display: block;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+  }
 }

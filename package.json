@@ -1,7 +1,7 @@
 {
-  "name": "admin",
+  "name": "up.talent",
   "version": "0.0.1",
-  "description": "React + MobX + React-Router",
+  "description": "",
   "scripts": {
     "lint:tools": "eslint webpack.config.js tools",
     "remove-dist": "node_modules/.bin/rimraf ./dist",
@@ -14,22 +14,24 @@
     "build": "babel-node tools/build.js",
     "postbuild": "babel-node tools/buildHtml.js"
   },
-  "author": "QBT-fe",
+  "author": "L-x-C",
   "dependencies": {
-    "antd": "2.5.1",
+    "animejs": "2.0.2",
+    "antd": "2.9.1",
     "isomorphic-fetch": "2.2.1",
+    "load-script": "1.0.0",
     "lodash": "4.17.2",
     "mobx": "2.6.3",
     "mobx-react": "4.0.3",
     "nprogress": "0.2.0",
-    "qs": "6.3.0",
+    "particles.js": "2.0.0",
+    "querystring": "0.2.0",
     "react": "15.4.1",
     "react-dom": "15.4.1",
     "react-helmet": "3.1.0",
     "react-router": "3.0.0"
   },
   "devDependencies": {
-    "helmet": "3.1.0",
     "assets-webpack-plugin": "3.4.0",
     "async": "2.1.4",
     "autoprefixer": "6.3.6",
@@ -60,6 +62,7 @@
     "express": "4.13.4",
     "extract-text-webpack-plugin": "1.0.1",
     "file-loader": "0.8.5",
+    "helmet": "3.1.0",
     "ignore-styles": "1.2.0",
     "json-loader": "0.5.4",
     "morgan": "1.7.0",
@@ -67,6 +70,7 @@
     "npm-run-all": "2.0.0",
     "object-assign": "4.1.0",
     "postcss-loader": "0.9.1",
+    "react-hot-loader": "1.3.1",
     "react-transform-catch-errors": "1.0.2",
     "react-transform-hmr": "1.0.4",
     "redbox-react": "1.2.4",
@@ -77,14 +81,12 @@
     "style-loader": "0.13.1",
     "urijs": "1.18.0",
     "url-loader": "0.5.7",
-    "webpack": "1.13.2",
+    "webpack": "1.13.0",
     "webpack-dev-middleware": "1.6.1",
     "webpack-hot-middleware": "2.10.0",
+    "webpack-md5-hash": "0.0.5",
     "webpack-node-externals": "1.2.0",
     "yargs": "4.7.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:QiaoBuTang/admin.git"
-  }
+  "repository": "git@github.com:QiaoBuTang/up.talent.git"
 }

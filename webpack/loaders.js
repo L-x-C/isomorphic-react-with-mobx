@@ -4,7 +4,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 export default function getLoaders(env) {
   return [{
     test: /\.jsx?$/,
-    loaders: ['babel', 'eslint'],
+    loaders: ['react-hot', 'babel', 'eslint'],
     include: path.join(__dirname, '..', 'src'),
     exclude: path.join('node_modules')
   }, {

@@ -1,6 +1,7 @@
-import { CV_SERVER } from '../../config.json';
+import {CV_SERVER, UP_API_SERVER, STATIC_PREFIX} from '../../config.json';
 import isEmpty from 'lodash/isEmpty';
 import {isClient} from './utils';
+import {browserHistory} from 'react-router';
 
 export class RedirectException {
   constructor(location, options) {
@@ -12,11 +13,22 @@ export class RedirectException {
 // status code is ignored when redirect from client side
 export function redirect(url, options) {
   if (isClient()) {
-    const {back} = options || {};
-    window.location.href = back ? appendParam(url, {return: (typeof back === 'string') ? back : window.location.href}) : url;
+    const {back, history} = options || {};
+    if (history) {
+      //如果有这个字段，就直接单页面路由跳转
+      let finalUrl = back ? appendParam(url, {return: (typeof back === 'string') ? back : window.location.pathname}) : url;
+      browserHistory.push(finalUrl);
+    } else {
+      window.location.href = back ? appendParam(url, {return: (typeof back === 'string') ? back : window.location.href}) : url;
+    }
   }
   else {
-    throw new RedirectException(url, options);
+    if (options.history) {
+      //如果有这个字段，说明是站内，加url前缀
+      throw new RedirectException(STATIC_PREFIX + url, options);
+    } else {
+      throw new RedirectException(url, options);
+    }
   }
 }
 
@@ -39,5 +51,5 @@ export function appendParam(url, params) {
 }
 
 export function login() {
-  redirect(`${CV_SERVER}/m/account/login`, {back: true});
+  redirect(`/account/login`, {history: true, back: true});
 }

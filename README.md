@@ -13,21 +13,14 @@ npm install
 
 ```
 npm start -s (-s is optional，will neglect unimportant message)
-open http://localhost:3001
+open http://localhost:3000
 ```
 
 ## Production (server-side rendering)
 ```
 npm run server
 
-open http://localhost:20001
-```
-it equals to
-```
-npm run build
-npm run production
-
-open http://localhost:20001
+open http://localhost:20000
 ```
 
 ## F.A.Q

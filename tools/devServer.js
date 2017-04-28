@@ -18,11 +18,12 @@ const bs = browserSync.create();
 
 // Run Browsersync and use middleware for Hot Module Replacement
 bs.init({
-  port: 3002,
+  port: 3000,
   server: {
     baseDir: 'src'
   },
-
+// disable for https://github.com/ant-design/ant-design/issues/2744
+  ghostMode: false,
   middleware: [
     webpackDevMiddleware(bundler, {
       // Dev middleware can't access config, so we provide publicPath

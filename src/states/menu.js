@@ -1,3 +1,11 @@
 export default  {
-  title: 'defaultTitle'
+  name: '', //用户名
+  access: [], //权限
+  pathname: '',
+  companyInfo: {},
+  tdk: {
+    title: 'Up',
+    description: 'up的招聘后台',
+    keywords: '招聘，后台，精准匹配'
+  }
 };

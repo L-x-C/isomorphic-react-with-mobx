@@ -1,7 +1,3 @@
 {
-  "CV_SERVER": "http://cv.qiaobutang.com",
-  "WWW_SERVER": "http://www.qiaobutang.com",
-  "JOB_SERVER": "http://job.qiaobutang.com",
-  "LIVE_SERVER": "http://live.qiaobutang.com",
-  "STATIC_PREFIX": "http://localhost:20001"
+  "STATIC_PREFIX": "http://localhost:20000"
 }

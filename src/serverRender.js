@@ -17,13 +17,9 @@ function renderFullPage(renderedContent, initialState, inWechat) {
       <meta http-equiv="content-type" content="text/html;charset=utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
       <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
-      <meta name="format-detection" content="telephone=no">
-      <meta name="format-detection" content="email=no">
-      <meta name="format-detection" content="address=no">
-      <meta name="apple-mobile-web-app-capable" content="yes">
-      <meta name="apple-mobile-web-app-status-bar-style" content="yes">
-      <meta name="x5-orientation" content="portrait">
-      <title>乔布简历</title>
+      <meta name="renderer" content="webkit">
+      <meta name="force-rendering" content="webkit">
+      <title>Up</title>
       <link rel="stylesheet" href="${STATIC_PREFIX}${ASSETS.index.css}"/>
     </head>
     <body>
@@ -31,7 +27,6 @@ function renderFullPage(renderedContent, initialState, inWechat) {
       <script>
         window.__INITIAL_STATE__ = ${serialize(initialState)};
       </script>
-      ${inWechat ? '<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>' : ''}
       <script type="text/javascript" charset="utf-8" src="${STATIC_PREFIX}${ASSETS.vendor.js}"></script>
       <script type="text/javascript" charset="utf-8" src="${STATIC_PREFIX}${ASSETS.index.js}"></script>
     </body>
@@ -62,6 +57,9 @@ module.exports = (req, res) => {
 
   const inWechat = new RegExp('MicroMessenger', 'i').test(req.headers['user-agent']);
   let state = createServerState();
+  //添加cookie
+  state['cookie'] = req.headers.cookie;
+
   match({
     routes: getRoutes(),
     location: req.originalUrl

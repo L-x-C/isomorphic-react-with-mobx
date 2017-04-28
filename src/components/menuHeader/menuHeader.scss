@@ -1,0 +1,124 @@
+$headerHeight: 76px;
+$headerBg: #fff;
+.up-header {
+  &.ant-row {
+    //height: $headerHeight;
+    line-height: $headerHeight;
+    background: $headerBg;
+  }
+}
+.up-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+.up-header__content {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.up-header__title_wrapper {
+  text-align: center;
+  height: $headerHeight;
+}
+
+.up-header__name {
+  font-size: 16px;
+  color: #64b2f2;
+  font-weight: 200;
+  &:hover {
+    color: #64b2f2;
+  }
+}
+
+.up-header__title {
+  &.iconfont {
+    font-size: 22px;
+    color: #283033;
+    vertical-align: 5px;
+    margin-left: 7px;
+  }
+}
+
+.up-header__logo_wrapper {
+  display: block;
+  line-height: 80px;
+}
+.up-header__logo {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 47px;
+  text-align: center;
+  border-radius: 100%;
+  color: #fff;
+  position: relative;
+  .icon-logo {
+    font-size: 30px;
+  }
+}
+
+.up-header__name {
+  text-align: center;
+  cursor: pointer;
+}
+
+.up-header__login_wrapper {
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  a {
+    color: #91a5af;
+    margin-right: 10px;
+    &:hover {
+      color: #64b2f2;
+    }
+  }
+}
+
+.up-header__menu.ant-menu {
+  background: $headerBg;
+  border-bottom: none;
+  .ant-menu-item {
+    height: $headerHeight;
+    line-height: $headerHeight + 2;
+    margin-right: 70px;
+    a {
+      font-size: 16px;
+      color: #91a5af;
+    }
+    &.ant-menu-item-selected {
+      border-bottom: 2px solid #10a1f9;
+      a {
+        color: #10a1f9;
+      }
+    }
+    &.ant-menu-item-active {
+      border-bottom: 2px solid #10a1f9;
+      a {
+        color: #10a1f9;
+      }
+    }
+  }
+}
+
+.admin-footer {
+  height: 65px;
+  background: #fff;
+  color: #1eb6f8;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  .admin-footer__content {
+    text-align: center;
+    font-size: 20px;
+  }
+}
+
+.menu-account.ant-dropdown-menu {
+  width: 60%;
+  margin: -15px auto 0;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+}
