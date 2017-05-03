@@ -36,8 +36,7 @@ open http://localhost:20000
 ## F.A.Q
 ## How to fetch data on the server side?
 
-Adding a `onEnter` function to a component, if you want to fetch another data after fetch the first, you should use `Promise`
-See the example in `TestPage.js`
+Adding a `onEnter` function to a component
 
 ```
 @action
