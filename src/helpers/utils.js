@@ -1,6 +1,5 @@
 import {toJS} from 'mobx';
 import {isNumber} from 'lodash';
-import {RANGE_SPLIT} from './const';
 
 export function isClient() {
   return !!((typeof window !== 'undefined') && window.document);
