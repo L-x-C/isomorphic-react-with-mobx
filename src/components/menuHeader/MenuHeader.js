@@ -41,7 +41,7 @@ export default class MenuHeader extends Component {
                   <Link to="/job">列表</Link>
                 </Menu.Item>
                 <Menu.Item key="company">
-                  <Link to="/company">page2(404)</Link>
+                  <Link to="/company">某页</Link>
                 </Menu.Item>
               </Menu>
             </Col>
