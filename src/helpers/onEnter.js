@@ -5,7 +5,6 @@ export default (renderProps, states) => {
   const query = renderProps.location.query;
   const pathname = renderProps.location.pathname;
 
-
   let onEnterArr = renderProps.components.filter(c => c.onEnter);
   return new Promise((resolve, reject) => {
     async.eachOfSeries(onEnterArr, function(c, key, callback) {
@@ -27,13 +26,11 @@ export default (renderProps, states) => {
 
           callback();
         }).catch(err => {
-          reject(err)
+          reject(err);
         });
       } else {
         callback();
       }
-
-
     });
   });
 };
