@@ -11,15 +11,24 @@ import {browserHistory} from 'react-router';
 export default {
   @action fetchJobList(states, obj) {
     states.job.jobList.datas = [{
-      key: '1',
-      name: '胡彦斌',
-      age: 32,
-      address: '西湖区湖底公园1号'
+      id: '1',
+      name: '小白',
+      age: 18,
+      address: '地球路111号'
     }, {
-      key: '2',
-      name: '胡彦祖',
-      age: 42,
-      address: '西湖区湖底公园1号'
+      id: '2',
+      name: '小黑',
+      age: 22,
+      address: '宇宙区银河路222号'
     }];
+  },
+
+  @action addList(states, obj) {
+    return new Promise((resolve) => {
+      obj.id = Math.random();
+      states.jobList.datas.push(obj);
+
+      resolve();
+    });
   }
 };

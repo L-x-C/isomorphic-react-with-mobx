@@ -16,7 +16,7 @@ export default class App extends Component {
     states.menu.pathname = refinePathname;
 
     return Promise.all([
-      menuActions.setTDK(states, 'Up', 'up的招聘后台', '招聘，后台，精准匹配')
+      menuActions.setTDK(states, 'L-x-C', 'a demo', 'lol')
     ]);
   }
 

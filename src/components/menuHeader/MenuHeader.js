@@ -4,18 +4,12 @@ import {observer, inject} from 'mobx-react';
 import {Row, Col, Menu, Button, Dropdown} from 'antd';
 import accountActions from '../../actions/account';
 import './menuHeader.scss';
-import {logoHover} from '../../helpers/animation';
 import {isClient} from '../../helpers/utils';
 import LogoPic from '../../images/logo.jpg';
 
 @inject("menu")
 @observer
 export default class MenuHeader extends Component {
-  componentDidUpdate = () => {
-    if (isClient()) {
-      document.querySelector('.up-header__logo_wrapper') && new logoHover(document.querySelector('.up-header__logo_wrapper'));
-    }
-  };
   render() {
     const accountMenu = (
       <Menu className="menu-account">
@@ -29,9 +23,6 @@ export default class MenuHeader extends Component {
       </Menu>
     );
     if (this.props.menu.pathname || this.props.hello) {
-      if (isClient()) {
-        document.querySelector('.up-header__logo_wrapper') && new logoHover(document.querySelector('.up-header__logo_wrapper'));
-      }
       return (
         <Row className="up-header">
           <div className="up-header__content">
@@ -47,10 +38,10 @@ export default class MenuHeader extends Component {
             <Col span={13} offset={1}>
               <Menu className="up-header__menu" mode="horizontal" selectedKeys={[this.props.menu.pathname]}>
                 <Menu.Item key="job">
-                  <Link to="/job">岗位</Link>
+                  <Link to="/job">列表</Link>
                 </Menu.Item>
                 <Menu.Item key="company">
-                  <Link to="/company">公司(404)</Link>
+                  <Link to="/company">page2(404)</Link>
                 </Menu.Item>
               </Menu>
             </Col>
