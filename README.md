@@ -23,7 +23,9 @@ open http://localhost:20000
 ```
 
 ## Preview
-![Login](https://github.com/L-x-C/isomorphic-react-with-mobx/blob/master/gifs/login.gif)
+![Login](https://github.com/L-x-C/isomorphic-react-with-mobx/blob/master/gifs/account.gif)
+![List](https://github.com/L-x-C/isomorphic-react-with-mobx/blob/master/gifs/list.gif)
+![404](https://github.com/L-x-C/isomorphic-react-with-mobx/blob/master/gifs/404.gif)
 
 
 ## F.A.Q
