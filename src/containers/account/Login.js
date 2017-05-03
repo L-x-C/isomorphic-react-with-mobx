@@ -59,7 +59,7 @@ class LoginForm extends React.Component {
           {getFieldDecorator('identity', {
             rules: [{required: true, message: '必填'}]
           })(
-            <Input addonBefore={<Icon type="user" />} placeholder="请输入手机号, 若是国外手机号，请输入+区号 手机号"/>
+            <Input addonBefore={<Icon type="user" />} placeholder="请输入手机号"/>
           )}
         </FormItem>
         <FormItem className="account-login__input_prefix">

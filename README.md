@@ -12,14 +12,13 @@ npm install
 ## Dev (client-side rendering)
 
 ```
-npm start -s (-s is optional，will neglect unimportant message)
+npm start
 open http://localhost:3000
 ```
 
 ## Production (server-side rendering)
 ```
 npm run server
-
 open http://localhost:20000
 ```
 
@@ -31,14 +30,12 @@ See the example in `TestPage.js`
 
 ```
 @action
-static onEnter({states, query, params}) {
+static onEnter({states, pathname, query, params}) {
+    progressStart();
     return Promise.all([
-      menuActions.changeMenuTitle(states, 'serverTitle'),
-      studentActions.fetchName(states),
-      studentActions.fetchName2(states)
-    ]).then(values => {
-      //do something
-    });
+      menuActions.setTDK(states, '列表'),
+      jobActions.fetchJobList(states, query)
+    ]);
 }
 ```
 
