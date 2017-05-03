@@ -23,8 +23,13 @@ open http://localhost:20000
 ```
 
 ## Preview
+#### Login, Register
 ![Login](https://github.com/L-x-C/isomorphic-react-with-mobx/blob/master/gifs/account.gif)
+
+#### Add item to list
 ![List](https://github.com/L-x-C/isomorphic-react-with-mobx/blob/master/gifs/list.gif)
+
+#### 404 page when routes not match
 ![404](https://github.com/L-x-C/isomorphic-react-with-mobx/blob/master/gifs/404.gif)
 
 
