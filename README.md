@@ -22,6 +22,10 @@ npm run server
 open http://localhost:20000
 ```
 
+## Preview
+![Login](https://github.com/L-x-C/isomorphic-react-with-mobx/blob/master/gifs/login.gif)
+
+
 ## F.A.Q
 ## How to fetch data on the server side?
 
