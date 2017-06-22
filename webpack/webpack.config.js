@@ -1,5 +1,4 @@
 import path from 'path';
-import autoprefixer from 'autoprefixer';
 import getLoaders from './loaders';
 import getPlugins from './plugins';
 import nodeExternals from 'webpack-node-externals';
@@ -7,15 +6,12 @@ import {STATIC_PREFIX} from '../config.json';
 
 function getBaseConfig(env) {
   return {
-    debug: true,
     devtool: env === 'production' ? 'source-map' : 'cheap-module-eval-source-map', // more info:https://webpack.github.io/docs/build-performance.html#sourcemaps and https://webpack.github.io/docs/configuration.html#devtool
-    noInfo: true, // set to false to see a list of every file being bundled.
     target: 'web',
     plugins: getPlugins(env, false),
     module: {
-      loaders: getLoaders(env)
-    },
-    postcss: [autoprefixer()]
+      rules: getLoaders(env)
+    }
   };
 }
 
@@ -40,7 +36,7 @@ export function getProdConfigs() {
     },
     output: {
       path: path.join(__dirname, '..', '/dist'), // Note: Physical files are only output by the production build task `npm run build`.
-      filename: '/[name].[chunkhash].js',
+      filename: '[name].[chunkhash].js',
       chunkFilename: "[chunkhash].js",
       publicPath: `${STATIC_PREFIX}/`
     }

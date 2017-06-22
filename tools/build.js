@@ -38,7 +38,7 @@ const callback = (err, stats, config) => {
   }
 
   // if we got this far, the build succeeded.
-  console.log(`Your app has been compiled in production mode for entry ${Object.keys(config.entry)} and written to ${config.output.path}. It\'s ready to roll!`.green.bold);
+  console.log(`Your app has been compiled in production mode for entry ${Object.keys(config.entry)} and written to ${config.output.path}. It's ready to roll!`.green.bold);
 
   return 0;
 };

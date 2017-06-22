@@ -12,7 +12,8 @@ export default function getPlugins(env, isServerRender) {
   const plugins = [
     //Tells React to build in prod mode. https://facebook.github.io/react/downloads.html
     new webpack.DefinePlugin(GLOBALS),
-    new ExtractTextPlugin('/styles.[contenthash].css')
+    new ExtractTextPlugin('/styles.[contenthash].css'),
+    require('autoprefixer')
   ];
 
   if (isServerRender) {
@@ -21,12 +22,7 @@ export default function getPlugins(env, isServerRender) {
 
   switch (env) {
     case 'production':
-      plugins.push(new webpack.optimize.DedupePlugin());
-      plugins.push(new webpack.optimize.UglifyJsPlugin({
-        compressor: {
-          warnings: false
-        }
-      }));
+      plugins.push(new webpack.optimize.UglifyJsPlugin());
       plugins.push(new AssetsPlugin({
         path: path.join(__dirname, '..', 'dist'),
         filename: 'assets.json',
@@ -46,12 +42,13 @@ export default function getPlugins(env, isServerRender) {
         }
       }));
       plugins.push(new WebpackMd5Hash());
+      plugins.push(new webpack.optimize.ModuleConcatenationPlugin());
 
       break;
 
     case 'development':
       plugins.push(new webpack.HotModuleReplacementPlugin());
-      plugins.push(new webpack.NoErrorsPlugin());
+      plugins.push(new webpack.NoEmitOnErrorsPlugin());
       break;
   }
 

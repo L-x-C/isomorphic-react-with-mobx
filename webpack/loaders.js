@@ -4,19 +4,23 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 export default function getLoaders(env) {
   return [{
     test: /\.jsx?$/,
-    loaders: ['react-hot', 'babel', 'eslint'],
+    use: ["babel-loader", "eslint-loader"],
     include: path.join(__dirname, '..', 'src'),
-    exclude: path.join('node_modules')
+    exclude: path.join(__dirname, '../node_modules')
   }, {
     test: /\.(jpe?g|png|gif|woff|svg|eot|ttf)\??.*$/,
-    loader: 'url-loader?limit=10000&name=[path][name].[hash].[ext]'
-  }, {
-    test: /\.json$/,
-    loaders: ['json']
+    loader: 'url-loader',
+    options: {
+      limit: 8192
+    }
   }, {
     test: /(\.css|\.scss)$/,
-    loader: env === 'production' ?
-      ExtractTextPlugin.extract("css?sourceMap!postcss!sass?sourceMap") : 'style!css!postcss!sass?sourceMap',
-    exclude: path.join('node_modules')
+    use: env === 'production' ?
+      ExtractTextPlugin.extract({
+        fallback: "style-loader",
+        use: ["css-loader", "postcss-loader", "sass-loader"]
+      }) :
+      ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+    exclude: path.join(__dirname, '../node_modules')
   }];
 }
